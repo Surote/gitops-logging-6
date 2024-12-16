@@ -1,1 +1,3 @@
-# gitops-logging-6
+# ocp-logging-operator
+
+using gitops/argocd to sync 

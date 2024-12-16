@@ -1,0 +1,15 @@
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-10"
+  name: collector
+  namespace: openshift-logging
+---
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-10"
+  name: gitops-sa
+  namespace: openshift-logging

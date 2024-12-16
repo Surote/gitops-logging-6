@@ -1,0 +1,33 @@
+apiVersion: loki.grafana.com/v1
+kind: LokiStack
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+  name: lokistack-demo
+  namespace: openshift-logging
+spec:
+  hashRing:
+    type: memberlist
+  limits:
+    global:
+      ingestion:
+        ingestionBurstSize: 30
+        ingestionRate: 30
+      queries:
+        queryTimeout: 3m
+      retention:
+        days: 3
+  managementState: Managed
+  size: 1x.pico
+  storage:
+    schemas:
+      - effectiveDate: '2024-10-11'
+        version: v13
+    secret:
+      name: loki-sec-obj
+      type: s3
+    tls:
+      caName: openshift-service-ca.crt
+  storageClassName: gp3-csi
+  tenants:
+    mode: openshift-logging
