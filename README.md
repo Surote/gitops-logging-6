@@ -1,0 +1,1 @@
+# gitops-logging-6
